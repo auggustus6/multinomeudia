@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="form-container">
+    <div class="multi-r1 text-center">
+        <div class="title-pergunta ct-white m-4">Solicitar Especialista</div>
+      <form [formGroup]="formR2Group">
+        <multi-erros-validacao
+          *ngIf="f.dataNasc.touched && !f.dataNasc.valid"
+          labelTxt="Data de Nascimento é necessário"
+        >
+        </multi-erros-validacao>
+        
+        <label>Data de Nascimento</label>
+        <div class="form-icon">
+          <i class="fas fa-calendar-week"></i>
+          <input
+            type="date"
+            placeholder="Data Nascimento"
+            formControlName="dataNasc"
+          />
+        </div>
+
+        <multi-erros-validacao
+          *ngIf="f.altura.touched && !f.altura.valid"
+          labelTxt="Altura"
+        >
+        </multi-erros-validacao>
+
+        <label>Altura</label>
+        <div class="form-icon">
+          <i class="fas fa-text-height"></i>
+          <input
+            type="text"
+            placeholder="Altura(cm)"
+            formControlName="altura"
+          />
+        </div>
+
+        <multi-erros-validacao
+          *ngIf="f.peso.touched && !f.peso.valid"
+          labelTxt="Peso é necessário"
+        >
+        </multi-erros-validacao>
+        
+        <label>Peso</label>
+        <div class="form-icon">
+          <i class="fas fa-weight"></i>
+          <input type="number" placeholder="Peso(kg)" formControlName="peso" />
+        </div>
+
+        <button (click)="enviarForm(formR2Group)">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>

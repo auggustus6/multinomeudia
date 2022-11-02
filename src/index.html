@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mapeamento de Perfil</title>
+    <base href="/" />
+
+    <meta property="og:url" content="http://multinomeudia.com.br/"/>
+    <meta property="og:title" content="Acabei de fazer o mapeamento de perfil da MultiFórmulas!"/>
+    <meta property="og:description" content="Há 25 anos atendendo em São José do Rio Preto, Catanduva, Ribeirão Preto e região, com ampla estrutura, associada ao completo quadro de técnicos e profissionais altamente capacitados e qualificados, a Fármacia Multifórmulas está entre as empresas líderes de mercado,surpreendendo e satisfazendo os mais exigentes consumidores. Centro de referência tecnológica em projeto farmacêutico e customização, que oferece solução terapêutica personalizada para as necessidades dos seus clientes. Usamos o máximo em processos tecnológicos e conceitos que elevam o nível do padrão e posicionamento da Multifórmulas para um patamar de trabalho profissional muito superior ao do mercado, comprovando isso com 3 certificados nacionais e internacionais de qualidade: ISO9001, ISO14.001 , ISO18.001 ."/>
+    <meta property="og:site_name" content="MultiFórmulas | Mapeamento"/>
+    <meta property="fb:app_id" content="1029654133744925" />
+    <!-- <meta property="og:image" content="http://dev-sistema.appfarmacianamao.com.br/Uploads/Empresas/45/9ec647b821859aec62f8f44ec12a3d65.jpg"/> -->
+    <meta property="og:image" content="assets/imgs/lpFacebook.jpg"/>
+    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63710994-3"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-63710994-3');
+      </script>
+  </head>
+  <body>
+    <app-root></app-root>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.3&appId=579005552183866&autoLogAppEvents=1"></script>
+
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+      function compartilhar(){
+        function addScript(url) {
+          var script = document.createElement('script');
+          script.type = 'application/javascript';
+          script.src = url;
+          document.head.appendChild(script);
+          }
+
+            addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+
+            var element = document.getElementById('main-content');
+            // var element  = document.body
+            var opt = {
+              margin:       0,
+              filename:     'Resultado.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 1 },
+              jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            setTimeout(()=> {
+              html2pdf().from(element).set(opt).save();
+            },2000)
+      }
+    </script>
+  </body>
+</html>

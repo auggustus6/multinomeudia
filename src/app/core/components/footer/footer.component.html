@@ -1,0 +1,62 @@
+<footer>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4">
+        <article>
+          Multifórmulas Farmácia de Manipulação LTDA CNPJ: 01.763.776/0002-07
+          Catanduva/SP AE Filial: 1.14430.7 AFE Filial: 7.39540.2 Licença
+          Sanitária: 37795/2014 Certificado de regularidade: 67858 Responsável
+          Técnico: Fábio Henrique Orsi Verdelli CRF/SP 25422
+        </article>
+      </div>
+
+      <div class="col-md-4">
+        <div class="logo">
+          <a>
+            <img
+              src="assets/imgs/logo-multiformulas.png"
+              class="img-fluid w-50"
+              alt="Multifórmulas"
+              title="Logotipo"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="infos-media">
+          <ul class="list-unstyled">
+            <li>
+              <a
+                href="https://www.facebook.com/multiformulasbr/"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/multiformulasbr/"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5517997870313" target="_blanl">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="cookies" *ngIf="showCookies">
+  <p class="ct-white">Aceita nossa politica de cookies.</p>
+  <button class="ml-4 active" (click)="aceitarCookies.emit(showCookies)">Aceito os termos</button>
+  <button class="ml-4" (click)="aceitarCookies.emit(showCookies)">Recuso os termos</button>
+  <button class="ml-4" (click)="saibaCookies.emit('cliquei')">Saiba sobre os termos</button>
+</div>

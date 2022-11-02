@@ -1,0 +1,183 @@
+$colorMasculino: #005ba3 !important;
+$colorFeminino: #f1003b !important;
+
+.title-main {
+  font-size: 3rem;
+}
+
+.categoriaMaior {
+  background: #fff;
+  color:#212025;
+
+  &:hover {
+    color:#fff;
+  }
+}
+
+.container-respostas {
+  margin-bottom: 5em;
+  ul {
+    margin-bottom: 0px;
+    color: #fff;
+    width: 50%;
+    margin: 0 auto;
+    li {
+      justify-content: center;
+      position: relative;
+      padding: 20px;
+      border: 1px solid #fff;
+      border-radius: 100px;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+
+      .melhorTopico {
+        position: absolute;
+        z-index: 10;
+        left: -350px;
+        width: 60%;
+        background: #ffffff;
+        box-shadow: 2px 2px 5px #020108;
+        border-radius: 10px;
+        padding: 8px;
+        color: #333;
+        top: 0;
+
+        img {
+        width: 60px;
+        border-radius: 100px;
+        position: absolute;
+        top: -15px;
+        border: 3px solid #fff;
+        right: 0;
+        }
+
+        h4 {
+          padding:5px 0;
+          font-size: 20px;
+          border-radius:1px;
+        }
+
+        p {
+          font-size:16px;
+        }
+
+        &::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f0da";
+        position: absolute;
+        right: -10px;
+        color: #fff;
+        font-size: 36px;
+        top: 0;
+        }
+      }
+
+      i {
+        font-size: 30px;
+      }
+
+      .resposta {
+        flex: 1 0 auto;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      &:hover {
+        background: #add100; /* fallback for old browsers */
+        transition-duration: 1s;
+      }
+    }
+    .active {
+      background: #add100; /* fallback for old browsers */
+      transition-duration: 1s;
+    }
+  }
+}
+
+.showMobile {
+  display: none;
+}
+
+.styleMasculino {
+  ul {
+    li {
+      &:hover {
+        background: $colorMasculino; /* fallback for old browsers */
+        transition-duration: 1s;
+      }
+    }
+  }
+}
+
+.styleFeminino {
+  ul {
+    li {
+      &:hover {
+        background: $colorFeminino; /* fallback for old browsers */
+        transition-duration: 1s;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .lista-categorias {
+    column-count: 1 !important;
+  }
+
+  .resposta {
+    font-size:1rem !important;
+  }
+
+  .categoriaOpniao {
+    background:#f1003b !important;
+  }
+
+  .categoriaMaior {
+    z-index: 999  ;
+  }
+
+  .hiddenMobile{
+    display: none;
+  }
+
+  .showMobile {
+    display: block !important;
+  }
+
+  .melhorTopicoMobile {
+    position: relative;
+    z-index: 10;
+    width: auto;
+    margin:20px 0px;
+    background: #ffffff;
+    box-shadow: 2px 2px 5px #020108;
+    border-radius: 10px;
+    padding: 8px;
+    color: #333;
+
+    img {
+    width: 60px;
+    border-radius: 100px;
+    position: absolute;
+    top: -15px;
+    border: 3px solid #fff;
+    right: 0;
+    }
+
+    h4 {
+      padding:5px 0;
+      font-size: 20px;
+      border-radius:1px;
+    }
+
+    p {
+      font-size:16px;
+    }
+
+  }
+}
+
+

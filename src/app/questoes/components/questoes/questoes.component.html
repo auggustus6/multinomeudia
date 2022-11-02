@@ -1,0 +1,57 @@
+<multi-banner-topico
+  backgroundImage="url({{bannerCategoria}})"
+  [nomeTopico]="nomeTopico"
+  [icone]="icone"
+></multi-banner-topico>
+
+<div id="main-content">
+  <ng-template #carregando>
+    <multi-carregando
+      [txtCarregando]="txtCarregando">
+    </multi-carregando>
+  </ng-template>
+
+  <div *ngIf="questions.length; else carregando">
+    <div
+      class="container"
+      *ngFor="let pergunta of questions | slice: previous:next; let i = index"
+    >
+      <div class="container-perguntas text-center">
+        <div class="title-pergunta">{{ pergunta.texto }}</div>
+        <p>{{ pergunta.chamada }}</p>
+      </div>
+
+      <div
+        class="container-respostas animated slideInLeft"
+        [ngClass]="classObject"
+      >
+        <ul class="list-unstyled mb-0">
+          <li
+            *ngFor="let resposta of pergunta.mpResposta; let j = index"
+            class="pointer"
+            (click)="nextQuestion(pergunta, resposta)"
+ 
+          >
+            <div class="resposta">
+              {{ resposta.resposta }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <multi-form-r1 *ngIf="showResultsR1" (clickBotao)="enviarLeads($event)">
+  </multi-form-r1>
+
+  <multi-timeline
+    *ngIf="hideTimeline != showResultsR1 && questions.length"
+    (voltar)="previousQuestion($event)"
+    (ajuda)="btnAjuda()"
+    [perguntaSelecionado]="perguntaSelecionado"
+    [qtdPerguntas]="questions"
+  ></multi-timeline>
+  
+  <multi-ajuda></multi-ajuda>
+
+</div>

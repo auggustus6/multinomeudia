@@ -1,0 +1,31 @@
+<div class="blog-card spring-fever" [style.backgroundImage]="urlImage">
+  <div class="title-content">
+    <h3>{{ nameCategory }}</h3>
+    <hr />
+    <div class="intro">
+      {{ descriptionShort }}
+    </div>
+
+    <div class="chart-content">
+      <div class="chart-info">
+        <multi-chart-categories [percent]="percent"></multi-chart-categories>
+        <!--/.donut-chart-->
+      </div>
+    </div>
+  </div>
+  <!-- /.title-content -->
+  <div class="card-info">
+    {{ descriptionLong }}
+  </div>
+  <!-- /.card-info -->
+  <!-- <div class="utility-info">
+      <ul class="utility-list">
+        <li class="comments">12</li>
+        <li class="date">03.12.2015</li>
+      </ul>
+    </div> -->
+  <!-- /.utility-info -->
+  <!-- overlays -->
+  <div class="gradient-overlay"></div>
+  <div class="color-overlay"></div>
+</div>

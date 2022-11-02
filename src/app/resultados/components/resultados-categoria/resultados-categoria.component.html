@@ -1,0 +1,196 @@
+<multi-banner-categoria></multi-banner-categoria>
+
+
+<div 
+id="main-content">
+
+  <multi-carregando
+    [txtCarregando]="txtCarregando"
+    *ngIf="carregando"
+  ></multi-carregando>
+
+  <div class="scrollDown"
+    (click)="scrollToBottom()"
+    *ngIf="isScroll">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+
+  <div class="icons">
+    <img src="assets/imgs/pill3.png" id="laranja">
+    <img src="assets/imgs/pill.png" id="morango">
+  </div>
+
+  <div 
+  class="container" 
+  #scrollMe
+    *ngIf="!carregando"
+      id="contentPrint"
+        style=
+        "position:relative; 
+        min-height: 300px;
+        overflow: auto;
+        z-index:5">
+        
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="f-roboto">SEU RESULTADO</h2>
+        
+        <div class="container-respostas">
+          <div class="card-resultados"
+              *ngFor="let resultado of resultados">
+            <div class="bloco-deficiencia" 
+              *ngIf="resultado.tituloDeficiencia">
+              <span class="badge-vitamina"></span>
+
+              <div class="topo">
+                <div class="bloco-texto d-flex flex-start flex-column">
+                  
+                  <h4 class="titulo-deficiencia">
+                    Possível Deficiência
+                  </h4>
+                 
+                  <span class="vitamina">
+                    {{ resultado.tituloDeficiencia }}
+                  </span>
+                  
+                  <p class="descricaoPrint"
+                    style="color:#fff;">
+                    {{ resultado.descricaoDeficiencia }}
+                  </p>
+
+                  <div class="descricao">
+                    <saiba-mais 
+                      [text]="resultado.descricaoDeficiencia" 
+                      [maxLength]="300">
+                    </saiba-mais>     
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+
+            <div class="bloco-complemento" *ngIf="resultado.tituloComplementar">
+              <span class="badge-vitamina"></span>
+
+              <div class="topo">
+                <div class="bloco-texto d-flex flex-start flex-column">
+                  <h4 class="titulo-deficiencia">Complemento no seu dia</h4>
+                  <span class="vitamina">{{
+                    resultado.tituloComplementar
+                  }}</span>
+                  <p class="descricaoPrint" style="color:#fff;">{{ resultado.descricaoComplementacao }}</p> 
+                  <div class="descricao">
+                    <saiba-mais 
+                      [text]="resultado.descricaoComplementacao" 
+                      [maxLength]="300">
+                  </saiba-mais>       
+                </div>
+                </div>
+                <img 
+                *ngIf="resultado.imagem"
+                  [src]="resultado.imagem" 
+                  class="imgFormula">
+              </div>
+              <a
+              (click)="enviarAnalitycs()"
+              class="linkConsultarComplemento"
+              [href]="resultado.link" 
+              *ngIf="resultado.link"
+              target="_blank">
+              <i class="fab fa-whatsapp"></i> Fale com o farmacêutico </a>
+            </div>
+          </div>
+        </div>
+        <div class="boxDuvidas">
+            *Todas as perguntas foram selecionadas para que o sistema identifique o seu perfil da melhor maneira possível. Lembrando que esta ferramenta não substitui as orientações de um profissional. 
+            Procure sempre um profissional da área da saúde para orientá-lo.        
+          </div>
+      </div>
+    </div>
+    
+    <div class="html2pdf__page-break"></div>
+
+    <div class="text-center">
+      <button
+        class="bt-solicitar"
+        (click)="solicitarSuporte = !solicitarSuporte"
+        *ngIf="solicitarSuporte">
+        Solicitar suporte com um especialista
+      </button>
+
+    </div>
+
+    <multi-formR2
+      (clickBotao)="enviarLead($event)"
+      *ngIf="!solicitarSuporte">
+    </multi-formR2>
+
+    <div class="box-validacao" *ngIf="formEnviado">
+      <p>{{textoValidacao}}</p>
+    </div>
+
+    <div class="boxShared text-center">
+      <h4>Compartilhe com seus amigos</h4>
+
+      <ul class="list-unstyled lista-redes">
+          <li>
+            <!-- <button 
+              printSectionId="contentPrint" 
+              [printStyle]="{p : {'color': '#000'}, h2 : {'color': '#000'}}"  
+              [useExistingCss]="true"
+              ngxPrint>
+              <i class="fas fa-download"></i>
+            </button>  -->
+            <button (click)="sharedPdf()">
+              <i class="fas fa-download"></i>
+            </button>
+          </li>
+
+          <li>
+            <div 
+              class="fb-share-button"
+              data-href="http://multinomeudia.com.br"
+              data-description="THE TITLE"
+              data-layout="button" 
+              data-size="small">
+                <a target="_blank" 
+                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmultinomeudia.com.br%2F&amp;src=sdkpreparse"
+                  class="fb-xfbml-parse-ignore">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+            </li>
+          <li
+          (click)="copyInputRede(urlWhats)">
+            <a [href]="urlWhats" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </li>
+
+          <li
+          (click)="copyInputRede('http://multinomeudia.com.br')">
+              <a>
+                <i class="fas fa-link"></i>
+              </a>
+          </li>
+          <!-- <li
+          (click)="hasEmail = !hasEmail">
+              <a>
+                <i class="far fa-envelope"></i>
+              </a>
+          </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  <div>
+</div>
+
+<div id="boxEmail" *ngIf="hasEmail">
+  <input type="email" required placeholder="Digite um e-mail válido de algum amigo">
+  <button><i class="fas fa-paper-plane"></i></button>
+</div>
+
+<div id="boxCopiado" *ngIf="boxCompartilhado">
+  <p>Obrigado por compartilhar <i class="far fa-smile-wink"></i></p>
+</div>

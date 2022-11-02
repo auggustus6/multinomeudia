@@ -1,0 +1,21 @@
+<div class="container">
+  <div id="progress-content" [ngClass]="classObject">
+    <div class="left">
+      <button (click)="voltar.emit()">
+        <i class="fas fa-angle-left"></i>
+        Voltar
+      </button>
+    </div>
+    <div class="mid w-100">
+      <ul class="progressbar">
+        <li [class]="perguntaSelecionado >= i  ? 'active': ''" *ngFor="let quantidade of qtdPerguntas; let i = index">
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <button (click)="showAjuda()">
+        <i class="far fa-question-circle"></i> Ajuda
+      </button>
+    </div>
+  </div>
+</div>

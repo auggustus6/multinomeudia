@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="form-container">
+    <div class="multi-r1 m-4">
+      <div class="title-pergunta ct-white">Estamos quase lá...</div>
+
+      <form class="mt-5" [formGroup]="leadForm">
+        <div>
+          <multi-erros-validacao
+            *ngIf="f.nome.touched && !f.nome.valid"
+            labelTxt="Nome é necessário"
+          >
+          </multi-erros-validacao>
+
+          <div class="form-icon">
+            <i class="far fa-user"></i>
+            <input type="text" placeholder="Seu nome" formControlName="nome" />
+          </div>
+
+          <multi-erros-validacao
+            *ngIf="f.whatsapp.touched && !f.whatsapp.valid"
+            labelTxt="Whatsapp é necessário"
+          >
+          </multi-erros-validacao>
+
+          <div class="form-icon">
+            <i class="fas fa-mobile-alt"></i>
+            <input
+              type="text"
+              ngxPhoneMaskBr
+              placeholder="(00) 0000-0000"
+              formControlName="whatsapp"
+            />
+          </div>
+
+          <multi-erros-validacao
+            *ngIf="f.email.touched && !f.email.valid"
+            labelTxt="E-mail é necessário ou inválido"
+          >
+          </multi-erros-validacao>
+
+          <div class="form-icon">
+            <i class="far fa-envelope"></i>
+            <input
+              type="email"
+              placeholder="seuemail@email.com.br"
+              formControlName="email"
+            />
+          </div>
+        </div>
+
+        <button (click)="enviarForm(leadForm)">Ver Resultado</button>
+      </form>
+    </div>
+  </div>
+</div>

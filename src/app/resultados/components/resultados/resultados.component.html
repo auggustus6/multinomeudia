@@ -1,0 +1,63 @@
+<multi-banner-topico
+  backgroundImage="url(assets/imgs/bannerR1.jpg)"
+  nomeTopico="Categorias"
+  icone="fas fa-sync-alt"
+
+></multi-banner-topico>
+
+<div id="main-content">
+  <multi-carregando txtCarregando="Carregando dados..." *ngIf="carregando"></multi-carregando>
+
+  <div class="container" *ngIf="!carregando">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="container-perguntas text-center">
+          <div class="title-pergunta ct-white">Escolha uma categoria para continuar</div>
+          <p class="ct-white">Selecione a que mais se identifica com você. Indicamos abaixo uma categoria com base nas respostas anteriores.
+          </p>
+        </div>
+
+        <div
+          class="container-respostas animated slideInLeft"
+          [ngClass]="classObject"
+        >
+          <ul class="list-unstyled mb-0">
+            <li
+              *ngFor="let categoria of categorias; let i = index"
+              class="pointer"
+              [ngClass]="categoria.id === categoriaMaior ? 'animated infinite pulse categoriaMaior' : ''"
+              [routerLink]="['/questoes/categoria',idSexo ,categoria.id]"
+              (click)="selecionarCategoria(idSexo,categoria.id)"
+              (mouseenter)="categoria.hover = true"
+              (mouseleave)="categoria.hover = false"
+            >
+              <div class="resposta" >
+                {{ categoria.titulo }}
+              </div>
+
+              <div class="melhorTopico animated zoomInLeft hiddenMobile" *ngIf="categoria.id == categoriaMaior">
+                <img src="assets/imgs/logomulti.jpg" alt="MultiFormulas"/>
+                <h4>Sua melhor escolha <i class="far fa-smile-wink"></i></h4>
+                <p>
+                Com base nas informações preenchidas até o momento, selecionamos uma categoria para prosseguir...mas é apenas uma sugestão.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="melhorTopicoMobile animated zoomInLeft showMobile">
+        <img src="assets/imgs/logomulti.jpg" alt="MultiFormulas"/>
+        <h4>Sua melhor escolha <i class="far fa-smile-wink"></i></h4>
+        <p>
+        Com base nas informações preenchidas até o momento, selecionamos uma categoria para prosseguir...mas é apenas uma sugestão.
+        </p>
+      </div>
+  </div>
+
+  <multi-ajuda></multi-ajuda>
+</div>

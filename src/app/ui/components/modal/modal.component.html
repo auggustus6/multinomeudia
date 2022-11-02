@@ -1,0 +1,18 @@
+<div
+  class="multi-modal-content"
+  [ngClass]="fadeModal ? 'fadeModal' : 'animated bounce'"
+>
+  <div class="multi-body">
+    <!-- {{contentBody}} -->
+    <div
+      class="d-flex align-items-center justify-content-between pointer"
+      (click)="hideModal()"
+    >
+      <h2>Dúvidas? Vamos lá!</h2>
+      <i class="fas fa-times"></i>
+    </div>
+    <p class="mt-3" style="overflow-y: auto; max-height: 200px;">
+      <ng-content> </ng-content>
+    </p>
+  </div>
+</div>

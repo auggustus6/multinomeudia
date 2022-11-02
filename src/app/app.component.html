@@ -1,0 +1,14 @@
+<router-outlet></router-outlet>
+<multi-modal  *ngIf="rotaEscolha">
+  <div>
+    Todas as perguntas foram selecionadas para ajudar o sistema durante a
+    identificação do seu perfil. Lembrando que esta ferramenta não substitui a
+    orientação de profissionais. Procure sempre um profissional da área da saúde
+    para orienta-lo.
+  </div>
+</multi-modal>
+<multi-footer
+  (saibaCookies)="termosCookies()"
+  (aceitarCookies)="aceitar($event)"
+  [showCookies]="showCookies">
+</multi-footer>

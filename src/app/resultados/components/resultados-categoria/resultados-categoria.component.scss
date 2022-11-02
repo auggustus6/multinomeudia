@@ -1,0 +1,443 @@
+
+
+body {
+  overflow-x: hidden;
+}
+
+.descricaoPrint {
+  display: none;
+}
+
+.descricao {
+  display: block;
+  color:#fff;
+}
+
+.title-main {
+  font-size: 3rem;
+}
+
+h2 {
+  font-weight: 100;
+  color: #fff;
+  font-size: 3em;
+  margin: 20px 0px;
+}
+
+.icons {
+  img {
+    position:absolute;
+  }
+
+  #laranja {
+    position: absolute;
+    width: 20%;
+    right: 0;
+    animation: flying 5s infinite;
+  }
+
+  #morango {
+    position: absolute;
+    width: 25%;
+    left: 0px;
+    bottom: 0;
+    z-index: 0;
+    animation: flying 5s infinite;
+  }
+}
+
+.card-resultados {
+  .bloco-deficiencia,
+  .bloco-complemento {
+    flex:1;
+    padding:0px 10px;
+
+    .titulo-deficiencia {
+      font-weight: bold;
+    }
+  }
+
+  .linkConsultarDeficiencia {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  .linkConsultarComplemento {
+    cursor: pointer;
+    position: absolute;
+    background:#add100;
+    border-radius:4px;
+    padding: 5px 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+
+  .topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .imgFormula {
+      cursor: pointer;
+      width: 165px;
+      height: 165px;
+      object-fit: cover;
+      margin-right: 10px;
+      margin-left: 10px;
+      border-radius:10px;
+    }
+
+    .bloco-texto {
+      padding:10px;
+    }
+  }
+
+
+  .bloco-deficiencia {
+    position: relative;
+    &::after {
+      content:'';
+      border:1px dashed #373442;
+      height: 100%;
+      width: 2px;
+      position: absolute;
+      right:10px;
+      top:0;
+
+    }
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: 'space-between';
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  background: rgba(0, 3, 3, 0.4);
+  // background: #333;
+  border-radius: 4px;
+  min-height: 300px;
+  border-radius: 4px;
+  box-shadow: inset 2px 2px 20px #111;
+  margin-bottom: 2rem;
+
+  .vitamina {
+    background: #f3a603;
+    width: fit-content;
+    border-radius: 4px;
+    font-weight:bold;
+    text-shadow: 2px 1px 2px #333;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  h4 {
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+  }
+
+  h4,
+  p {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+  }
+
+  p {
+    line-height: 2em;
+  }
+
+  .bg-rodape {
+    background: url('https://www.reportermaceio.com.br/wp-content/uploads/2018/06/Vitamina-C-para-que-serve.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 45px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    border-top: 2px solid #f1003b;
+  }
+}
+
+.bt-solicitar {
+  justify-content: center;
+  padding: 20px 40px;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color:#fff;
+  margin-bottom: 1em;
+
+  &:hover {
+    color:#212025;
+    background: #fff; /* fallback for old browsers */
+    transition-duration: 1s;
+  }
+}
+
+
+.box-validacao {
+    text-align: center;
+    width: 35%;
+    background: #add100;
+    margin: 0 auto;
+    border-radius: 50px;
+    font-size: 18px;
+    p {
+      color:#212025;
+      padding:10px;
+      margin-bottom:0px;
+    }
+}
+
+.boxShared {
+  h4 {
+    color:#fff;
+  }
+
+  .lista-redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    li {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border: 2px solid #fff;
+      border-radius:100px;
+      padding:10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+
+      button {
+        color:#fff;
+        &:hover {
+          color: #212025;
+        }
+      }
+        &:hover {
+          transition: .5s;
+          background: #fff;
+          a {
+            color:#212025;
+          }
+        }
+        a {
+          color:#fff;
+          font-size:18px;
+        }
+    }
+  }
+}
+
+@keyframes flying {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+#boxCopiado {
+  position: fixed;
+  z-index:9999 !important;
+  border-radius:5px;
+  right:10px;
+  bottom:10px;
+  background: #fff;
+  padding:10px;
+  border-top:2px solid #add100;
+  width: 25%;
+  text-align: center;
+  p {
+    margin-bottom: 0px;
+    color:#333;
+    font-size:14px;
+  }
+}
+
+#boxEmail {
+  position: fixed;
+  border-top: 2px solid #add100;
+  background: #fff;
+  border-radius: 5px;
+  width: 25%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  top: 25%;
+
+  input {
+    font-size:12px;
+    outline: none;
+    margin-right: 10px;
+    flex: 1;
+    padding: 10px 20px;
+    border: 0;
+    border-bottom: 1px solid #3333;
+    text-align: left;
+  }
+
+  button {
+    background: #add100;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+}
+
+.boxDuvidas {
+  color:#fff;
+  margin:15px 0px;
+  font-size:12px;
+}
+
+@media (max-width: 768px) {
+  .lista-categorias {
+    column-count: 1 !important;
+  }
+
+    .card-resultados {
+      align-items: flex-start;
+      flex-direction:column;
+      justify-content: space-between;
+      height: auto !important;
+      min-height: inherit !important;
+      .topo {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+        .bloco-deficiencia {
+          &::after {
+            content:'';
+            border:none;
+            height: 0px;
+            width: 0px;
+      }
+    }
+  }
+
+  .imgFormula {
+    margin-left: 0px !important;
+  }
+
+  #morango {
+    width: 50% !important;
+  }
+
+  .bt-solicitar {
+    font-size:1.3rem;
+  }
+}
+
+@media(max-width:425px){
+  .imgFormula {
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  .linkConsultarComplemento {
+    position: relative !important;
+    margin:0px !important;
+    right:0px !important;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media print {
+
+  * {
+    background: none !important;
+    color: #000 !important;
+    text-shadow: none; 
+  }
+
+  #maint-content {
+    padding-top:10px !important;
+  }
+
+  .card-resultados {
+    align-items: flex-start;
+    flex-direction:column;
+    justify-content: space-between;
+    height: auto !important;
+    min-height: inherit !important;
+    .topo {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+      .bloco-deficiencia {
+        &::after {
+          content:'';
+          border:none;
+          height: 0px;
+          width: 0px;
+    }
+  }
+}
+
+  .icons,
+  .linkConsultarComplemento,
+  .bt-solicitar,
+  .boxShared { 
+      display: none !important;
+    }
+    .descricao {display: none !important;}
+
+    .descricaoPrint {
+      display: block !important;
+      color:#000 !important;
+    }
+}
+
+.scrollDown {
+  position: fixed;
+  z-index: 999;
+  right:10px;
+  bottom:10px;
+  display: flex;
+  align-items: center;
+  font-size:14px;
+  justify-content: center;
+  background: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius:100px;
+
+  i {
+    color:#333;
+  }
+}
+

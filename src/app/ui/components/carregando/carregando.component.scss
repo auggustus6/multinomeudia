@@ -1,0 +1,55 @@
+:host {
+  .content-loading {
+    position: relative;
+    #loader-container {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      overflow: hidden;
+      .loader-div {
+        width: calc(100%);
+        height: calc(100%);
+        border: 3px solid #162534;
+        // border:3px dashed transparent;
+        border-top: 2px solid #005ba3;
+        border-radius: 100px;
+        animation: rotate 5s linear infinite;
+      }
+    }
+
+    .bloco-interno {
+      img {
+        position: absolute;
+      top: -10px;
+      width: 100px;
+      border-radius: 100px;
+      border: 5px solid #162534;
+      }
+    p {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: -10px;
+      }
+    }
+
+
+    button {
+    border: 1px solid #fff;
+    padding: 5px 30px;
+    border-radius: 2px;
+    color: #fff;
+    margin: 10px;
+    font-size: 12px;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
