@@ -1,0 +1,36 @@
+name: Deploy dev site on push
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-deploy:
+    name: Deploy Angular App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2.3.2
+
+      - name: Use Node.js 14 LTS
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install NPM Modules
+        run: npm install
+
+      - name: Build Project
+        run: npm run build:prod
+
+      - name: Sync Files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: 108.179.252.27
+          username: multinomeudia@multinomeudia.com.br
+          password: dMD[ML7tYgaH
+          local-dir: ./dist/fnm-app/
+          server-dir: /
+          dangerous-clean-slate: true
