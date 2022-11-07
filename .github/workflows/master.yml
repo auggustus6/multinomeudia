@@ -31,6 +31,6 @@ jobs:
           server: 108.179.252.27
           username: multinomeudia@multinomeudia.com.br
           password: dMD[ML7tYgaH
-          local-dir: ./dist/fnm-app/
+          local-dir: ./dist/lpMapeamento/
           server-dir: /
           dangerous-clean-slate: true
